@@ -4,11 +4,9 @@
   "description": "daily recording of various metrics",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "build": "rm -rf dist/* && npm run copy:others && babel src --out-dir dist --presets es2015",
-    "copy:others": "rsync -avm --exclude='*.js' ./src/* ./dist",
-    "start": "npm run build && nodemon ./dist/index.js",
-    "dev" : "rm -rf lib/* && babel --presets es2015,react src -d lib && nodemon ./lib/index.js"
+    "dev" : "rm -rf lib/* && babel --presets es2015,react src -d lib && nodemon ./lib/index.js",
+    "test": "npm run test-build && NODE_ENV=test nodemon --exec 'mocha --recursive -R min'",
+    "test-build": "rm -rf test/* && babel --presets es2015,react test-src -d test"
   },
   "author": "Tom Scott",
   "license": "ISC",
