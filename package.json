@@ -1,0 +1,29 @@
+{
+  "name": "daily-records",
+  "version": "0.0.1",
+  "description": "daily recording of various metrics",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+  },
+  "author": "Tom Scott",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "babel": "^6.23.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-1": "^6.22.0",
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mocha": "^3.2.0",
+    "mongoose": "^4.8.3",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
+  }
+}
