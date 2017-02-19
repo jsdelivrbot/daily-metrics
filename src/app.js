@@ -1,8 +1,8 @@
 // imports
 import express from 'express'
 import bodyParser from 'body-parser'
-// import routes from ('./routes/routes')
-import mongoose from ('mongoose')
+import routes from './routes/routes'
+import mongoose from 'mongoose'
 
 // TODO: create routes file
 
