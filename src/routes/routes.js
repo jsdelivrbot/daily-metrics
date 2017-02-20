@@ -1,5 +1,5 @@
 // import controllers
-const Test = require('../controllers/test-controller');
+import Test from '../controllers/test-controller'
 
 module.exports = (app) => {
   app.get('/', Test.greeting)

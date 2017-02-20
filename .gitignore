@@ -3,3 +3,4 @@ dist/
 lib/
 .env
 test/
+.DS_Store
