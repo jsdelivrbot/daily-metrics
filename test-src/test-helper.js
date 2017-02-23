@@ -3,7 +3,7 @@ import mongoose from 'mongoose'
 mongoose.Promise = global.Promise;  // mongoose promise library is deprecated
 
 before((done) => {
-  // connect to DB before running mocha
+  // connect to test DB before running mocha
   mongoose.connect('mongodb://localhost/daily_records_test')
   mongoose.connection
     .once('open', () => console.log('Connected to test DB'))
