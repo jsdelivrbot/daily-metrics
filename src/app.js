@@ -9,6 +9,7 @@ import mongoose from 'mongoose'
 // init
 const app = express();
 const dbConnection = 'mongodb://localhost/daily-records'  // TODO: pull from environment
+
 // connect to mongo
 mongoose.Promise = global.Promise
 if (process.env.NODE_ENV !== 'test') {
