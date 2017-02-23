@@ -11,7 +11,7 @@ const UserSchema = new Schema({
     },
     required: [true, 'Name is required.']
   },
-  Metrics: [{
+  metrics: [{
     type: Schema.Types.ObjectId,
     ref: 'metric'
   }]

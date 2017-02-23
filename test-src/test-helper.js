@@ -16,8 +16,12 @@ before((done) => {
 
 beforeEach ((done) => {
   // drop all collections before each test
-  const { users } = mongoose.connection.collections
+  const { users, metrics, entries } = mongoose.connection.collections
   users.drop(() => {
-    done()
-  });
-});
+    metrics.drop(() => {
+      entries.drop(() => {
+        done()
+      })
+    })
+  })
+})

@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const MetricSchema = new Schema({
   title: String,
   metric_type: String,
-  entry: [{
+  entries: [{
     type: Schema.Types.ObjectId,
     ref: 'entry'
   }]
