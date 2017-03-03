@@ -1,6 +1,9 @@
 import User from '../models/user'
 
 module.exports = {
+  greeting(req, res) {
+    res.send({ hi: 'there' })
+  },
   create(req, res, next) {
     const userProps = req.body
     User.create(userProps)
