@@ -1,6 +1,6 @@
 import passport from 'passport'
-import User from '../modesl/user'
-import config from '../config'
+import User from '../models/user'
+import config from '../../config'
 const JwtStrategy = require('passport-jwt').Strategy;  // TODO: determine how this is done in JS6
 // import { Strategy as JwtStrategy } from 'passport-jwt'
 const ExtractJwt = require('passport-jwt').ExtractJwt;

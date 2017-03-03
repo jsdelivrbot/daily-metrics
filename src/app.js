@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import routes from './routes/routes'
 import mongoose from 'mongoose'
+import morgan from 'morgan'
 import cors from 'cors'
 
 // init
@@ -11,11 +12,12 @@ const dbConnection = 'mongodb://localhost/daily-records'  // TODO: pull from env
 
 // connect to mongo
 mongoose.Promise = global.Promise
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test') {  // use seperate testing database for testing
     mongoose.connect(dbConnection)
 }
 
 // run app and routes through middleware
+app.use(morgan('combined'))
 app.use(cors())
 app.use(bodyParser.json()) // must be in this order
 routes(app)

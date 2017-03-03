@@ -4,3 +4,4 @@ lib/
 .env
 test/
 .DS_Store
+config.js
