@@ -4,7 +4,7 @@ mongoose.Promise = global.Promise;  // mongoose promise library is deprecated
 
 before((done) => {
   // connect to test DB before running mocha
-  mongoose.connect('mongodb://localhost/daily_records_test')
+  mongoose.connect('mongodb://localhost/daily_records_test')  // TODO: update to be from environement
   mongoose.connection
     .once('open', () => console.log('Connected to test DB'))
     .on('error', (error) => {

@@ -3,8 +3,14 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import routes from './routes/routes'
 import mongoose from 'mongoose'
-
-// TODO: create routes file
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import { Router, browserHistory } from 'react-router';
+// import clientRoutes from './client/routes';
+// import reducers from './client/reducers';
+// import promise from 'redux-promise';
 
 // init
 const app = express();
@@ -23,7 +29,10 @@ routes(app);
 // handle errors in requests
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message });
+
 });
 
 // exports
 module.exports = app;
+
+// front end
