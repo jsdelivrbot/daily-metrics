@@ -5,7 +5,12 @@ import Entry from '../lib/models/entry'
 
 describe('Creating records', () => {
   it('saves a user', (done) => {
-    const joe = new User({name: 'Joe'})
+    const joe = new User({
+      first_name: 'Joe',
+      last_name: 'Smith',
+      email: 'joe@smith.com',
+      password: 'testpass'
+    })
     joe.save()
       .then(() => {
         assert(!joe.isNew)
