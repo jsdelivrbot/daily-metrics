@@ -12,22 +12,9 @@ module.exports = (app) => {
   app.post('/api/users', UsersController.create)
   app.get('/api', UsersController.greeting)
   app.get('/', requireAuth, function(req, res) {
-    res.send({ message: 'Super secret code is ABC123' })
+    res.send({ message: 'Authenticated' })
   })
   app.post('/signin', requireSignin, Authentication.signin)
   app.post('/signup', Authentication.signup)
 
 }
-
-
-
-
-
-
-
-// module.exports = function(app) {
-//   app.get('/', requireAuth, function(req, res) {
-//     res.send({ message: 'Super secret code is ABC123' });
-//   });
-//   app.post('/signin', requireSignin, Authentication.signin);
-//   app.post('/signup', Authentication.signup);

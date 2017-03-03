@@ -18,6 +18,31 @@ describe('Creating records', () => {
       })
   })
 
+  it('receives an error when trying to save a user with an existing email address', (done) => {
+    const bill = new User ({
+      first_name: 'Bill',
+      last_name: 'Johnson',
+      email: 'bill@email.com',
+      password: 'testpass'
+    })
+    const bill2 = new User ({
+      first_name: 'Bill',
+      last_name: 'Second',
+      email: 'bill@email.com',
+      password: 'testpass'
+    })
+
+
+    bill.save()
+      .then(() => {
+        bill2.save()
+          .then(() => {
+            assert(!bill2.isNew)
+            done()
+          })
+      })
+  })
+
   // it('saves a metric', (done) => {
   //   const metric = new Metric({ title: 'skipping', metric_type: 'boolean' })
   //   const joe = new User({name: 'Joe'})
