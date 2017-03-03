@@ -3,13 +3,25 @@ const Schema = mongoose.Schema;
 
 
 const UserSchema = new Schema({
-  name: {
+  first_name: String,
+  last_name: String,
+  email: {
     type: String,
+    unique: true,
+    lowercase: true,
+    // validate: {
+    //   validator: (email) => // email validation
+    //   message: 'Incorrect email form.'
+    // },
+    required: [true, 'Email is required']
+  },
+  password: {
+    type: String,
+    required: true,
     validate: {
-      validator: (name) => name.length > 2,
-      message: 'Name must be longer than 2 characters.'
-    },
-    required: [true, 'Name is required.']
+      validator: (password) => password.length > 7,
+      message: 'Password must be at least 8 characters.'
+    }
   },
   metrics: [{
     type: Schema.Types.ObjectId,
@@ -23,7 +35,7 @@ UserSchema.pre('remove', function (next) {
   // this === model instance (i.e name of metric in code)
   const Metric = mongoose.model('metric');
 
-  Metric.remove({ _id: { $in: this.blogPosts } })
+  Metric.remove({ _id: { $in: this.metrics } })
     .then(() => next());
 
 });
