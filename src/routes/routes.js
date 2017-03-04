@@ -11,8 +11,8 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = (app) => {
   // back end routes
-  app.post('/api/users', UsersController.create)
-  app.get('/api', UsersController.greeting)
+  app.post('/api/users', UsersController.create)  // deprecated use Authentication.signin
+  app.get('/api', UsersController.greeting)  // to test API
   app.get('/', requireAuth, function(req, res) {
     res.send({ message: 'Authenticated' })
   })
@@ -22,5 +22,6 @@ module.exports = (app) => {
   app.post('/getmetrics', MetricsController.getList)
   app.post('/getuser', UsersController.getUserId)
   app.post('/addentry', EntriesController.create)
+  app.post('/getentries', EntriesController.getEntryList)
 
 }
