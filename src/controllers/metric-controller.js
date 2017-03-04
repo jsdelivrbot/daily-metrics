@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 import Metric from '../models/metric'
 import User from '../models/user'
 
+mongoose.Promise = global.Promise
+
 module.exports = {
   // supply metric properties and a user _id and create a metric assigned to a user
   create(req, res, next) {
@@ -13,8 +15,8 @@ module.exports = {
 
     User.findOne({ _id: metricProps.user })
     .then((user) => {
-      user.metrics.push(metric)
-      Promise.all([user.save(), metric.save()])
+      // user.metrics.push(metric)
+      Promise.all([User.findByIdAndUpdate({ _id: metricProps.user }, {$push: {metrics: metric}}), metric.save()])  // use find byId and update
         .then(() => {
           User.findOne({ _id: metricProps.user })
             .populate('metrics')
