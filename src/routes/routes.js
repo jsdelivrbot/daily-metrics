@@ -1,6 +1,7 @@
 // import controllers
 import passport from 'passport'
 import UsersController from '../controllers/users-controller'
+import MetricController from '../controllers/metric-controller'
 import Authentication from '../controllers/auth-controller'
 import passportService from '../services/passport'
 
@@ -16,5 +17,8 @@ module.exports = (app) => {
   })
   app.post('/signin', requireSignin, Authentication.signin)
   app.post('/signup', Authentication.signup)
+  app.post('/addmetric', MetricController.create)
+  app.get('/getmetrics', MetricController.getList)
+
 
 }

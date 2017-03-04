@@ -4,7 +4,7 @@ import Metric from '../lib/models/metric'
 import Entry from '../lib/models/entry'
 
 describe('Creating records', () => {
-  it('saves a user', (done) => {
+  xit('saves a user', (done) => {
     const joe = new User({
       first_name: 'Joe',
       last_name: 'Smith',
@@ -18,7 +18,7 @@ describe('Creating records', () => {
       })
   })
 
-  it('receives an error when trying to save a user with an existing email address', (done) => {
+  xit('receives an error when trying to save a user with an existing email address', (done) => {
     const bill = new User ({
       first_name: 'Bill',
       last_name: 'Johnson',
