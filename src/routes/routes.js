@@ -23,5 +23,6 @@ module.exports = (app) => {
   app.post('/getuser', UsersController.getUserId)
   app.post('/addentry', EntriesController.create)
   app.post('/getentries', EntriesController.getEntryList)
+  app.post('/entryupdate', EntriesController.update)
 
 }

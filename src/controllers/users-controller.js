@@ -18,5 +18,6 @@ module.exports = {
     if (!req.body.email) res.send('Need to supply an email')
     User.find({email: req.body.email})
       .then((user) => res.send(user))
+      .catch(next)
   }
 }

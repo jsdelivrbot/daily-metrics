@@ -25,6 +25,7 @@ module.exports = {
             })
         })
     })
+    .catch(next)
   },
   // supply user _id get list of all metrics relating to that record
   getList(req, res, next) {
@@ -39,5 +40,6 @@ module.exports = {
     .then((metricArr) => {
       res.send(metricArr)
     })
+    .catch(next)
   }
 }

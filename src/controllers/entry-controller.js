@@ -17,10 +17,10 @@ module.exports = {
         Metric.findOne({ _id: entryProps.metric })
           .populate('entries')
           .then(() => {
-            res.send('done')
+            res.send('entry added')
           })
       })
-      .catch(() => next())
+      .catch(next)
   },
   // supply user _id get list of all metrics relating to that record
   getEntryList(req, res, next) {
@@ -36,6 +36,16 @@ module.exports = {
     .then((entryArr) => {
       res.send(entryArr)
     })
-    .catch(() => next())
+    .catch(next)
+  },
+  // supply an entry _id and update value (date shouldn't need to be updated)
+  update(req, res, next) {
+    if (!req.body.entry) res.send('Entry _id required')
+    Entry.findByIdAndUpdate({ _id: req.body.entry }, { value: req.body.value})
+    .then((updatedEntry) => {
+      res.send(updatedEntry)
+    })
+    .catch(next)
   }
+
 }
