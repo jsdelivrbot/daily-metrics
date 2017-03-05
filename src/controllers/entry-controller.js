@@ -7,7 +7,6 @@ import Metric from '../models/metric'
 module.exports = {
   // supply metric _id and entry properties assign an entry to a metric
   create(req, res, next) {
-    console.log('im adding an entry')
     const entryProps = req.body
     let entry = new Entry({ value: entryProps.value, entry_date: entryProps.entry_date })
     // check that a metric _id exists

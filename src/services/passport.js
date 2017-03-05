@@ -1,6 +1,5 @@
 import passport from 'passport'
 import User from '../models/user'
-import config from '../../config'
 const JwtStrategy = require('passport-jwt').Strategy;  // TODO: determine how this is done in JS6
 // import { Strategy as JwtStrategy } from 'passport-jwt'
 const ExtractJwt = require('passport-jwt').ExtractJwt;
@@ -32,7 +31,7 @@ const localLogin = new LocalStrategy(localOptions, function(email, password, don
 // Setup options for JWT Strategy
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: config.secret
+  secretOrKey: process.env.SECRET
 };
 
 // Create JWT strategy

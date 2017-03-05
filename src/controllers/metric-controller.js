@@ -9,7 +9,6 @@ module.exports = {
   create(req, res, next) {
     const metricProps = req.body
     let metric = new Metric({ title: metricProps.title, metric_type: metricProps.metric_type})
-    console.log('metricProps', metricProps)  // TODO: add IS_DEBUG
 
     if (!metricProps.user) res.send('User required')
 

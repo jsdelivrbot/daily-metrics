@@ -8,7 +8,7 @@ import cors from 'cors'
 
 // init
 const app = express()
-const dbConnection = 'mongodb://localhost/daily-records'  // TODO: pull from environment
+const dbConnection = process.env.MONGO_DB  // TODO: pull from environment
 
 // connect to mongo
 mongoose.Promise = global.Promise
