@@ -5,3 +5,4 @@ lib/
 test/
 .DS_Store
 config.js
+npm-debug.log

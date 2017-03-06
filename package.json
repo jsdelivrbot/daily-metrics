@@ -2,12 +2,16 @@
   "name": "daily-records",
   "version": "0.0.1",
   "description": "daily recording of various metrics",
+  "engines": {
+    "node": "6.9.0"
+  },
   "main": "index.js",
   "scripts": {
     "dev": "npm run dev-build && nodemon ./lib/index.js",
     "test": "npm run dev-build && npm run test-build && NODE_ENV=test mocha",
     "test-build": "rm -rf test/* && babel --presets es2015,react test-src -d test",
-    "dev-build": "rm -rf lib/* && babel --presets es2015,react src -d lib"
+    "dev-build": "rm -rf lib/* && babel --presets es2015,react src -d lib",
+    "start": "npm run dev-build && nodemon ./lib/index.js"
   },
   "author": "Tom Scott",
   "license": "ISC",
