@@ -11,7 +11,7 @@
     "test": "npm run dev-build && npm run test-build && NODE_ENV=test mocha",
     "test-build": "rm -rf test/* && babel --presets es2015,react test-src -d test",
     "dev-build": "rm -rf lib/* && babel --presets es2015,react src -d lib",
-    "start": "npm run dev-build && nodemon ./lib/index.js"
+    "start": "npm run dev-build && node ./lib/index.js"
   },
   "author": "Tom Scott",
   "license": "ISC",
