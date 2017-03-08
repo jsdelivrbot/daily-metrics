@@ -18,14 +18,8 @@ module.exports = {
     if (!req.body.email) res.send('Need to supply an email')
     User.find({email: req.body.email})
       .then((user) => {
-        // build object that doesn't include password
-        let returnObj = {
-          _id: user._id,
-          email: user.email
-          }
-        if (user.first_name) retunObj.first_name = user.first_name
-        if (user.last_name) returObj.last_name = user.last_name
-        res.send(returnObj)
+        // TODO: build object that doesn't include password
+        res.send(user)
       })
       .catch(next)
   }
