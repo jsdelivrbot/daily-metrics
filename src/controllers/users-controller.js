@@ -1,4 +1,5 @@
 import User from '../models/user'
+import _ from 'underscore'
 
 module.exports = {
   greeting(req, res) {
@@ -18,8 +19,13 @@ module.exports = {
     if (!req.body.email) res.send('Need to supply an email')
     User.find({email: req.body.email})
       .then((user) => {
-        // TODO: build object that doesn't include password
-        res.send(user)
+        let returnObj = {
+          _id: user[0]._id,
+          email: user[0].email
+          }
+        if (user[0].first_name) returnObj.first_name = user[0].first_name
+        if (user[0].last_name) returnObj.last_name = user[0].last_name
+        res.send(returnObj)
       })
       .catch(next)
   }
