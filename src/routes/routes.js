@@ -19,7 +19,7 @@ module.exports = (app) => {
   app.post('/signup', Authentication.signup)
   app.post('/addmetric', requireAuth, MetricsController.create)
   app.post('/getmetrics', requireAuth, MetricsController.getList)
-  app.post('/getuser', requireAuth, UsersController.getUserId)
+  app.post('/getuser', UsersController.getUserId)
   app.post('/addentry', requireAuth, EntriesController.create)
   app.post('/getentries', requireAuth, EntriesController.getEntryList)
   app.post('/entryupdate', requireAuth, EntriesController.update)
